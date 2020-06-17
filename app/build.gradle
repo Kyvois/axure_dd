@@ -58,4 +58,8 @@ dependencies {
     implementation "androidx.room:room-ktx:$kotlin_room_version"
 
     // Swipe to refresh layout
-    implementation "androidx.sw
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swiper_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.r
