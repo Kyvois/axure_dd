@@ -78,4 +78,11 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_components_version"
 
     // Glide
-    implementation "com.github.bumptech.glide:glide:$glide_versi
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    // MPAndroidChart
+    implementation "com.github.PhilJay:MPAndroidChart:$chart_version"
+
+    // Lottie
+    implementation "
