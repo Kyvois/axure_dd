@@ -66,4 +66,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$interceptor_version"
 
     // Coroutines
-  
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    // C
