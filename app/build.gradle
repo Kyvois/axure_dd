@@ -85,4 +85,10 @@ dependencies {
     implementation "com.github.PhilJay:MPAndroidChart:$chart_version"
 
     // Lottie
-    implementation "
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
+    // Jsoup
+    implementation "org.jsoup:jsoup:$jsoup_version"
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-analytics
