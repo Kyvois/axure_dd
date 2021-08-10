@@ -9,4 +9,8 @@ import hr.ferit.matijasokol.coinmarket.models.Coin
 @Dao
 interface CoinDao {
 
-    @Inse
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(coin: Coin)
+
+    @Query("SELECT * FROM coins ORDER BY marketCap DESC")
+    suspend fun getAllCoins
