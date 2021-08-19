@@ -13,4 +13,5 @@ interface CoinDao {
     suspend fun upsert(coin: Coin)
 
     @Query("SELECT * FROM coins ORDER BY marketCap DESC")
-    suspend fun getAllCoins
+    suspend fun getAllCoins(): List<Coin>
+}
