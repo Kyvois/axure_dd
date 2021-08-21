@@ -25,4 +25,10 @@ object AppModule {
     @Provides
     fun provideCoinDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
         context.applicationContext,
-        CoinDatabase::class.j
+        CoinDatabase::class.java,
+        Constants.DB_NAME
+    ).build()
+
+    @Singleton
+    @Provides
+    fun provideCoinDao(coinDatabase: CoinDatabase) = coinDatabase.getCoinDao
