@@ -12,4 +12,13 @@ import hr.ferit.matijasokol.coinmarket.networking.CoinsMarketApi
 import hr.ferit.matijasokol.coinmarket.other.Constants
 import hr.ferit.matijasokol.coinmarket.other.Constants.BASE_URL
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLogg
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
+
+@Module
+@InstallIn(ApplicationComponent::class)
+object AppModule {
+
+    @
