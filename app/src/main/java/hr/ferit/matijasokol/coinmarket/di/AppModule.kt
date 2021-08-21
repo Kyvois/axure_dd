@@ -21,4 +21,8 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 object AppModule {
 
-    @
+    @Singleton
+    @Provides
+    fun provideCoinDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
+        context.applicationContext,
+        CoinDatabase::class.j
