@@ -8,4 +8,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import hr.ferit.matijasokol.coinmarket.db.CoinDatabase
-import hr.ferit.matijasokol.coinmarket.networking.CoinsM
+import hr.ferit.matijasokol.coinmarket.networking.CoinsMarketApi
+import hr.ferit.matijasokol.coinmarket.other.Constants
+import hr.ferit.matijasokol.coinmarket.other.Constants.BASE_URL
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLogg
