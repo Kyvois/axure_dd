@@ -39,4 +39,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(gsonConverter
+    fun provideRetrofit(gsonConverterFactory: GsonConverterFactory): Retrofit {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            setLevel(HttpLoggingInterceptor.Level.BODY)
+        }
+
+        val client 
