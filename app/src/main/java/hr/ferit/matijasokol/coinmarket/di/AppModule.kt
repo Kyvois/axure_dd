@@ -31,4 +31,12 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideCoinDao(coinDatabase: CoinDatabase) = coinDatabase.getCoinDao
+    fun provideCoinDao(coinDatabase: CoinDatabase) = coinDatabase.getCoinDao()
+
+    @Singleton
+    @Provides
+    fun provideGsonConverterFactory() = GsonConverterFactory.create()
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(gsonConverter
