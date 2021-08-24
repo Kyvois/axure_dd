@@ -50,4 +50,11 @@ object AppModule {
 
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConve
+            .addConverterFactory(gsonConverterFactory)
+            .client(client)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideApi(retrofit: Retrofit) = retr
