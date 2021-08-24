@@ -44,4 +44,10 @@ object AppModule {
             setLevel(HttpLoggingInterceptor.Level.BODY)
         }
 
-        val client 
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConve
