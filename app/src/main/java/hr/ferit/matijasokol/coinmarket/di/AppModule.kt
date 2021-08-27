@@ -57,4 +57,5 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApi(retrofit: Retrofit) = retr
+    fun provideApi(retrofit: Retrofit) = retrofit.create(CoinsMarketApi::class.java)
+}
