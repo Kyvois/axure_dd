@@ -39,4 +39,9 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
 
     private val mPending = AtomicBoolean(false)
 
-    private val TAG = "[DEBUG
+    private val TAG = "[DEBUG] SingleLiveEvent"
+
+    @MainThread
+    override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
+        if (hasActiveObservers()) {
+       
