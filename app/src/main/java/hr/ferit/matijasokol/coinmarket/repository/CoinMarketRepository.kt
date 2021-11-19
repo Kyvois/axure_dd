@@ -14,4 +14,8 @@ class CoinMarketRepository @Inject constructor(
 
     suspend fun getCoins() = coinApi.getCoins()
 
-    suspend 
+    suspend fun getYearCoinDetails(id: String) = coinApi.getYearCoinDetails(id)
+
+    suspend fun getLastDayCoinDetails(id: String) = coinApi.getLastDayCoinDetails(id)
+
+    suspend
