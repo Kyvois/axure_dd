@@ -18,4 +18,8 @@ class CoinMarketRepository @Inject constructor(
 
     suspend fun getLastDayCoinDetails(id: String) = coinApi.getLastDayCoinDetails(id)
 
-    suspend
+    suspend fun getCoinInfo(id: String) = coinApi.getCoinInfo(id)
+
+    suspend fun upsertList(coins: List<Coin>) = coins.forEach { coinDao.upsert(it) }
+
+    suspend fun getSavedCoins() = c
