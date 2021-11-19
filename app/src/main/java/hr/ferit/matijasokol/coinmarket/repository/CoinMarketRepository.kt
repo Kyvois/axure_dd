@@ -22,4 +22,5 @@ class CoinMarketRepository @Inject constructor(
 
     suspend fun upsertList(coins: List<Coin>) = coins.forEach { coinDao.upsert(it) }
 
-    suspend fun getSavedCoins() = c
+    suspend fun getSavedCoins() = coinDao.getAllCoins()
+}
