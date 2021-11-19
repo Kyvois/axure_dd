@@ -7,4 +7,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class
+class CoinMarketRepository @Inject constructor(
+    private val coinDao: CoinDao,
+    private val coinApi: CoinsMarketApi
+) {
+
+    suspend fun getCoins() = coinApi.getCoins()
+
+    suspend 
