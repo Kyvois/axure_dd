@@ -8,4 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import hr.ferit.matijasokol.coinmarket.R
 import hr.ferit.matijasokol.coinmarket.app.CoinMarketApplication
-import hr.ferit.matijasokol.coinmarket.model
+import hr.ferit.matijasokol.coinmarket.models.Coin
+import hr.ferit.matijasokol.coinmarket.models.Resource
+import hr.ferit.matijasokol.coinmarket.other.SingleLiveEvent
+import hr.ferit.matijasokol.coinmarket.other.
