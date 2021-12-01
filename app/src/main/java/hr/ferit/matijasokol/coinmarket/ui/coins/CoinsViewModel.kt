@@ -11,4 +11,8 @@ import hr.ferit.matijasokol.coinmarket.app.CoinMarketApplication
 import hr.ferit.matijasokol.coinmarket.models.Coin
 import hr.ferit.matijasokol.coinmarket.models.Resource
 import hr.ferit.matijasokol.coinmarket.other.SingleLiveEvent
-import hr.ferit.matijasokol.coinmarket.other.
+import hr.ferit.matijasokol.coinmarket.other.hasInternetConnection
+import hr.ferit.matijasokol.coinmarket.repository.CoinMarketRepository
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
+imp
