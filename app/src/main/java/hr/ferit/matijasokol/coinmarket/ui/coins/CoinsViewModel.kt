@@ -15,4 +15,9 @@ import hr.ferit.matijasokol.coinmarket.other.hasInternetConnection
 import hr.ferit.matijasokol.coinmarket.repository.CoinMarketRepository
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
-imp
+import java.io.IOException
+
+class CoinsViewModel @ViewModelInject constructor(
+    app: Application,
+    private val repository: CoinMarketRepository
+) : AndroidViewModel(app
