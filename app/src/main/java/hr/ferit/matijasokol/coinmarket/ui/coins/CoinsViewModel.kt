@@ -20,4 +20,11 @@ import java.io.IOException
 class CoinsViewModel @ViewModelInject constructor(
     app: Application,
     private val repository: CoinMarketRepository
-) : AndroidViewModel(app
+) : AndroidViewModel(app) {
+
+    private val _coins = SingleLiveEvent<Resource<List<Coin>>>()
+
+    val coins: LiveData<Resource<List<Coin>>>
+        get() = _coins
+
+    fun getCoins() = viewModelScope.laun
