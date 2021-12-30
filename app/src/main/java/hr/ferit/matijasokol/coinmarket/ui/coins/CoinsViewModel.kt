@@ -34,4 +34,7 @@ class CoinsViewModel @ViewModelInject constructor(
     private suspend fun coinsCall() {
         try {
             if (hasInternetConnection(getApplication())) {
-                _coins.postValue
+                _coins.postValue(Resource.Loading())
+                val response = repository.getCoins()
+                if (response.isSuccessful) {
+                    response.body()?.let { resultResponse -
