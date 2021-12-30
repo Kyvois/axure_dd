@@ -45,4 +45,9 @@ class CoinsViewModel @ViewModelInject constructor(
                     _coins.postValue(Resource.Error(response.message()))
                 }
             } else {
-                val savedCoins = repository.getSavedCo
+                val savedCoins = repository.getSavedCoins()
+                _coins.postValue(Resource.Success(savedCoins))
+            }
+        } catch (t: Throwable) {
+            when(t) {
+                is IOExcept
