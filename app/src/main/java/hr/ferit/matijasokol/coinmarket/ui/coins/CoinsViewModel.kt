@@ -50,4 +50,5 @@ class CoinsViewModel @ViewModelInject constructor(
             }
         } catch (t: Throwable) {
             when(t) {
-                is IOExcept
+                is IOException -> _coins.postValue(Resource.Error(getApplication<CoinMarketApplication>().getString(R.string.network_failure)))
+                else -> _coins.postValue(Resource.
