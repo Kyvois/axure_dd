@@ -37,4 +37,8 @@ class CoinsViewModel @ViewModelInject constructor(
                 _coins.postValue(Resource.Loading())
                 val response = repository.getCoins()
                 if (response.isSuccessful) {
-                    response.body()?.let { resultResponse -
+                    response.body()?.let { resultResponse ->
+                        _coins.postValue(Resource.Success(resultResponse))
+                        repository.upsertList(resultResponse)
+                    }
+         
