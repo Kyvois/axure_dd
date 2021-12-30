@@ -27,4 +27,11 @@ class CoinsViewModel @ViewModelInject constructor(
     val coins: LiveData<Resource<List<Coin>>>
         get() = _coins
 
-    fun getCoins() = viewModelScope.laun
+    fun getCoins() = viewModelScope.launch(IO) {
+        coinsCall()
+    }
+
+    private suspend fun coinsCall() {
+        try {
+            if (hasInternetConnection(getApplication())) {
+                _coins.postValue
