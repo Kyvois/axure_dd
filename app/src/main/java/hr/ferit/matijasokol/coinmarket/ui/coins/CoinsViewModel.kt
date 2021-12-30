@@ -41,4 +41,8 @@ class CoinsViewModel @ViewModelInject constructor(
                         _coins.postValue(Resource.Success(resultResponse))
                         repository.upsertList(resultResponse)
                     }
-         
+                } else {
+                    _coins.postValue(Resource.Error(response.message()))
+                }
+            } else {
+                val savedCoins = repository.getSavedCo
