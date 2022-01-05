@@ -12,4 +12,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import hr.ferit.matijasokol.coinm
+import hr.ferit.matijasokol.coinmarket.R
+import hr.ferit.matijasokol.coinmarket.models.Coin
+import hr.ferit.matijasokol.coinmarket.models.Resource
+import hr.ferit.matijasokol.coinmarket.other.Constants.R
