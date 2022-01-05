@@ -15,4 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import hr.ferit.matijasokol.coinmarket.R
 import hr.ferit.matijasokol.coinmarket.models.Coin
 import hr.ferit.matijasokol.coinmarket.models.Resource
-import hr.ferit.matijasokol.coinmarket.other.Constants.R
+import hr.ferit.matijasokol.coinmarket.other.Constants.RECYCLER_COLUMNS_NUMBER
+import hr.ferit.matijasokol.coinmarket.other.gone
+import hr.ferit.matijasokol.coinmarket.other.hasInternetConnection
+import hr.ferit.matijasokol.coinmark
