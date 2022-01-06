@@ -18,4 +18,7 @@ import hr.ferit.matijasokol.coinmarket.models.Resource
 import hr.ferit.matijasokol.coinmarket.other.Constants.RECYCLER_COLUMNS_NUMBER
 import hr.ferit.matijasokol.coinmarket.other.gone
 import hr.ferit.matijasokol.coinmarket.other.hasInternetConnection
-import hr.ferit.matijasokol.coinmark
+import hr.ferit.matijasokol.coinmarket.other.showSnackbar
+import hr.ferit.matijasokol.coinmarket.other.visible
+import hr.ferit.matijasokol.coinmarket.ui.adapters.CoinsAdapter
+import hr.ferit.matijasokol
