@@ -21,4 +21,10 @@ import hr.ferit.matijasokol.coinmarket.other.hasInternetConnection
 import hr.ferit.matijasokol.coinmarket.other.showSnackbar
 import hr.ferit.matijasokol.coinmarket.other.visible
 import hr.ferit.matijasokol.coinmarket.ui.adapters.CoinsAdapter
-import hr.ferit.matijasokol
+import hr.ferit.matijasokol.coinmarket.ui.coins.CoinsViewModel
+import kotlinx.android.synthetic.main.fragment_coins.*
+
+@AndroidEntryPoint
+class CoinsFragment : Fragment(R.layout.fragment_coins) {
+
+    private val coinsAdapter by lazy { C
