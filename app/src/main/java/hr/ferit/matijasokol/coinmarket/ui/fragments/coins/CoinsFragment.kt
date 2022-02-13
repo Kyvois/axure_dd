@@ -27,4 +27,7 @@ import kotlinx.android.synthetic.main.fragment_coins.*
 @AndroidEntryPoint
 class CoinsFragment : Fragment(R.layout.fragment_coins) {
 
-    private val coinsAdapter by lazy { C
+    private val coinsAdapter by lazy { CoinsAdapter { coin, imageView -> onItemClicked(coin, imageView) } }
+    private val viewModel: CoinsViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceSta
