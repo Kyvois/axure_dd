@@ -30,4 +30,11 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
     private val coinsAdapter by lazy { CoinsAdapter { coin, imageView -> onItemClicked(coin, imageView) } }
     private val viewModel: CoinsViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceSta
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setRecycler()
+        observeChanges()
+        setSwiper()
+
+        viewModel
