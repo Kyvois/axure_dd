@@ -43,4 +43,10 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
     private fun setSwiper() {
         swiper.setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE)
         swiper.setOnRefreshListener {
-            viewModel.
+            viewModel.getCoins()
+        }
+    }
+
+    private fun observeChanges() {
+        viewModel.coins.observe(viewLifecycleOwner, Observer { response ->
+            w
