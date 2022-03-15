@@ -49,4 +49,8 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
 
     private fun observeChanges() {
         viewModel.coins.observe(viewLifecycleOwner, Observer { response ->
-            w
+            when (response) {
+                is Resource.Success -> {
+                    textViewList.gone()
+                    response.data?.let {
+                        coinsA
