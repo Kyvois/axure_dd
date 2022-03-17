@@ -53,4 +53,9 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
                 is Resource.Success -> {
                     textViewList.gone()
                     response.data?.let {
-                        coinsA
+                        coinsAdapter.submitList(it)
+                        if (it.isEmpty()) {
+                            textViewList.visible()
+                        }
+                    }
+
