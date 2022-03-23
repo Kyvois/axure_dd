@@ -59,3 +59,9 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
                         }
                     }
 
+                    lottieList.gone()
+                    closeSwiperIfRefreshing()
+                }
+                is Resource.Error -> {
+                    lottieList.gone()
+                    clos
