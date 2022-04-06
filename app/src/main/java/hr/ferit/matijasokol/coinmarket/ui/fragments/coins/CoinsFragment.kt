@@ -69,4 +69,12 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
                         rootLayout.showSnackbar(getString(R.string.error))
                     }
                 }
+                is Resource.Loading -> {
+                    showAnimIfNeeded()
+                }
+            }
+        })
+    }
+
+    private fun showAnimIfNeeded() {
         
