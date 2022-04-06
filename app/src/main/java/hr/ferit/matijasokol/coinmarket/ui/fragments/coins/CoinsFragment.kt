@@ -84,4 +84,9 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
 
     private fun setRecycler() {
         recycler.apply {
-            layoutManager = GridLayoutManager(requireContext
+            layoutManager = GridLayoutManager(requireContext(), RECYCLER_COLUMNS_NUMBER)
+            adapter = coinsAdapter
+            setHasFixedSize(true)
+
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener {
