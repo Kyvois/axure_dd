@@ -64,4 +64,9 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
                 }
                 is Resource.Error -> {
                     lottieList.gone()
-                    clos
+                    closeSwiperIfRefreshing()
+                    response.message?.let {
+                        rootLayout.showSnackbar(getString(R.string.error))
+                    }
+                }
+        
