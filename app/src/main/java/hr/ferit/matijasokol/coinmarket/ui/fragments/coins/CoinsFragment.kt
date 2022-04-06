@@ -77,4 +77,11 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
     }
 
     private fun showAnimIfNeeded() {
-        
+        if (!swiper.isRefreshing) {
+            lottieList.visible()
+        }
+    }
+
+    private fun setRecycler() {
+        recycler.apply {
+            layoutManager = GridLayoutManager(requireContext
