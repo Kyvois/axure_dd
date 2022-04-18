@@ -103,4 +103,8 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
         }
 
         view.transitionName = coin.imageUrl
-     
+        val extras = FragmentNavigatorExtras(
+            view to coin.imageUrl
+        )
+        val action = CoinsFragmentDirections.actionCoinsFragmentToDetailsFragment(coin, coin.name)
+    
