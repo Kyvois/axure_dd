@@ -367,3 +367,22 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                 notifyDataSetChanged()
             } else {
                 lineSet = LineDataSet(changedData, coin.name)
+                lineSet.setDrawIcons(false)
+                lineSet.setDrawValues(false)
+                lineSet.color = ContextCompat.getColor(requireContext(), R.color.colorPrimary)
+                lineSet.setCircleColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+                lineSet.setDrawFilled(true)
+                lineSet.fillDrawable = ContextCompat.getDrawable(requireContext(), R.drawable.chart_background)
+                lineSet.enableDashedLine(10f, 5f, 0f)
+            }
+
+            val list: ArrayList<ILineDataSet> = ArrayList()
+            list.add(lineSet)
+            val lineData = LineData(list)
+            setData(lineData)
+
+            animateX(CHART_ANIM_DURATION, Easing.Linear)
+        }
+    }
+
+}
