@@ -90,3 +90,11 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
 
             postponeEnterTransition()
             viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
+        }
+    }
+
+    private fun onItemClicked(coin: Coin, view: View) {
+        if (!hasInter
