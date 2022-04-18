@@ -112,4 +112,10 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
 
     private fun navigate(destination: NavDirections, extraInfo: FragmentNavigator.Extras) =
         with(findNavController()) {
-            currentDestination?
+            currentDestination?.getAction(destination.actionId)
+                ?.let {
+                    navigate(destination, extraInfo)
+                }
+        }
+
+    private fun closeSwiperIfRe
