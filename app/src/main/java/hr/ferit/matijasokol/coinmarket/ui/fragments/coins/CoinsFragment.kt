@@ -118,4 +118,9 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
                 }
         }
 
-    private fun closeSwiperIfRe
+    private fun closeSwiperIfRefreshing() {
+        if (swiper.isRefreshing) {
+            swiper.isRefreshing = false
+        }
+    }
+}

@@ -1,0 +1,32 @@
+
+package hr.ferit.matijasokol.coinmarket.ui.fragments.details
+
+import android.graphics.Color
+import android.graphics.Typeface
+import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
+import android.util.Log
+import android.view.View
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import dagger.hilt.android.AndroidEntryPoint
+import hr.ferit.matijasokol.coinmarket.R
+import hr.ferit.matijasokol.coinmarket.models.Coin
+import hr.ferit.matijasokol.coinmarket.models.CoinInfoResponse
+import hr.ferit.matijasokol.coinmarket.models.Resource
+import hr.ferit.matijasokol.coinmarket.other.*
