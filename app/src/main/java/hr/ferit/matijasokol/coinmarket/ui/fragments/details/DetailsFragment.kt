@@ -198,3 +198,172 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         textViewDesc.text = response.description.english.trim().fromHtmlToText()
         if (textViewDesc.text.isBlank()) {
             textViewDesc.text = getString(R.string.no_data)
+        }
+        textViewHighPrice.apply {
+            text = highPriceSpannable
+            visible()
+        }
+        textViewLowPrice.apply {
+            text = lowPriceSpannable
+            visible()
+        }
+        textViewHashAlg.apply {
+            text = hashAlgSpannable
+            visible()
+        }
+    }
+
+    private fun setTextViewsColor(choosenTextView: TextView) {
+        textViewsChoosers.first { it == choosenTextView }.background = ContextCompat.getDrawable(requireContext(), R.drawable.text_view_shape_full)
+        textViewsChoosers.filterNot { it == choosenTextView }.forEach { it.background = ContextCompat.getDrawable(requireContext(), R.drawable.text_view_shape_empty) }
+    }
+
+    private fun setTextViewsClickability(clickable: Boolean) {
+        textViewsChoosers.forEach { it.isClickable = clickable }
+    }
+
+    private fun setDailyData(data: List<Float>) {
+        val cal = Calendar.getInstance()
+        val currentHour = cal.get(Calendar.HOUR_OF_DAY)
+        for (i in 23 downTo 0) {
+            var hour = currentHour - i
+            if (hour < 1) hour += 24
+            if (hour == 24) hour = 0
+            dailyValues.add(Entry(hour.toFloat(), data[23 - i]))
+        }
+
+        setLineChart(dailyValues)
+    }
+
+    private fun setWeekData(data: List<Float>) {
+        getDailyData(WEEK_LENGTH, weekValues, data)
+    }
+
+    private fun setMonthData(data: List<Float>) {
+        getDailyData(getPreviousMonthLength(), monthValues, data)
+    }
+
+    private fun getDailyData(range: Int, list: MutableList<Entry>, data: List<Float>) {
+        val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        val lastMonthLen = getPreviousMonthLength()
+
+        for (i in (range - 1) downTo 0) {
+            var day = currentDay - i
+            if (day < 1) {
+                day = lastMonthLen - i + currentDay
+                val index = data.size - 1 - i
+                if (index < 0) {
+                    return
+                }
+                list.add(Entry(day.toFloat(), data[index]))
+            } else {
+                list.add(Entry(day.toFloat(), data[data.size - 1 - i]))
+            }
+        }
+    }
+
+    private fun setYearData(data: List<Float>) {
+        val cal = Calendar.getInstance()
+        val currentDay = cal.get(Calendar.DAY_OF_MONTH)
+        val currentMonth = cal.get(Calendar.MONTH)
+        var firstMonth = true
+        var lastDay = 0
+        var monthOverflow = 0
+
+        for (i in 0..11) {
+            if (firstMonth) {
+                val currentMonthValues = data.reversed().subList(0, currentDay)
+                lastDay += currentMonthValues.size
+                val avg = currentMonthValues.average().toFloat()
+                yearValues.add(Entry((currentMonth + 1).toFloat(), avg))
+                firstMonth = false
+            } else {
+                var month = currentMonth - yearValues.size + 1
+                if (month < 1) {
+                    monthOverflow++
+                    month = 12 - monthOverflow
+                    val monthLen = GregorianCalendar(cal.get(Calendar.YEAR - 1), month, 1).getActualMaximum(Calendar.DAY_OF_MONTH)
+                    val currentMonthValues = if (lastDay + monthLen > data.size) {
+                        data.reversed().subList(lastDay, data.size)
+                    } else {
+                        data.reversed().subList(lastDay, lastDay + monthLen)
+                    }
+                    lastDay += currentMonthValues.size
+                    val avg = currentMonthValues.average().toFloat()
+                    yearValues.add(Entry((month + 1).toFloat(), avg))
+                } else {
+                    val monthLen = GregorianCalendar(cal.get(Calendar.YEAR), currentMonth - i, 1).getActualMaximum(Calendar.DAY_OF_MONTH)
+                    val currentMonthValues = if (lastDay + monthLen > data.size) {
+                        data.reversed().subList(lastDay, data.size)
+                    } else {
+                        data.reversed().subList(lastDay, lastDay + monthLen)
+                    }
+                    lastDay += currentMonthValues.size
+                    val avg = currentMonthValues.average().toFloat()
+                    yearValues.add(Entry((currentMonth + 1 - i).toFloat(), avg))
+                }
+            }
+        }
+
+        yearValues.reverse()
+    }
+
+    private fun setSharedElementTransitionOnEnter() {
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+    }
+
+    private fun isDataValid(data: List<Entry>): Boolean {
+        if (data.isEmpty() || data.map { it.y }.any { it.isNaN() }) {
+            return false
+        }
+        return true
+    }
+
+    private fun setLineChart(data: List<Entry>) {
+        val changedData = mutableListOf<Entry>()
+        data.forEach {
+            changedData.add(Entry(data.indexOf(it).toFloat(), it.y))
+        }
+
+        lineChart.apply {
+            description.isEnabled = false
+            setBackgroundColor(Color.WHITE)
+            setTouchEnabled(true)
+            setDrawGridBackground(true)
+
+            val xAxisValues = data.map { it.x.toInt().toString() }
+            val markerView = CustomMarkerView(requireContext(), R.layout.custom_marker_view, xAxisValues, changedData)
+            markerView.chartView = this
+            marker = markerView
+
+            isDragEnabled = true
+            setScaleEnabled(true)
+
+            setPinchZoom(true)
+
+            xAxis.apply {
+                enableGridDashedLine(10f, 10f, 0f)
+                position = XAxis.XAxisPosition.BOTTOM
+                valueFormatter = IndexAxisValueFormatter(xAxisValues)
+            }
+
+            axisLeft.apply {
+                lineChart.axisRight.isEnabled = false
+                enableGridDashedLine(10f, 10f, 0f)
+                axisMaximum = changedData.map { it.y }.max() ?: 0f
+                axisMinimum = 0f
+            }
+
+            val lineSet: LineDataSet
+
+            if (getData() != null && getData().dataSetCount > 0) {
+                lineSet = getData().getDataSetByIndex(0) as LineDataSet
+                lineSet.values = changedData
+                lineSet.fillAlpha = 110
+                lineSet.fillDrawable = ContextCompat.getDrawable(requireContext(), R.drawable.chart_background)
+                lineSet.mode = LineDataSet.Mode.CUBIC_BEZIER;
+                lineSet.notifyDataSetChanged()
+                getData().notifyDataChanged()
+                notifyDataSetChanged()
+            } else {
+                lineSet = LineDataSet(changedData, coin.name)
