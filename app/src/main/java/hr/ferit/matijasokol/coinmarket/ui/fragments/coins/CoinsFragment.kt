@@ -107,4 +107,9 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
             view to coin.imageUrl
         )
         val action = CoinsFragmentDirections.actionCoinsFragmentToDetailsFragment(coin, coin.name)
-    
+        navigate(action, extras)
+    }
+
+    private fun navigate(destination: NavDirections, extraInfo: FragmentNavigator.Extras) =
+        with(findNavController()) {
+            currentDestination?
