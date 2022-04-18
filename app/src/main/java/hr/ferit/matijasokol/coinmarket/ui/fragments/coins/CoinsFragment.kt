@@ -97,4 +97,10 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
     }
 
     private fun onItemClicked(coin: Coin, view: View) {
-        if (!hasInter
+        if (!hasInternetConnection(requireContext())) {
+            rootLayout.showSnackbar(getString(R.string.details_offline))
+            return
+        }
+
+        view.transitionName = coin.imageUrl
+     
