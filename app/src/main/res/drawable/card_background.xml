@@ -8,4 +8,9 @@
                 android:width="1dp"
                 android:color="#222222" />
             <corners
-         
+                android:radius="7dp" />
+            <padding
+                android:left="10dp"
+                android:top="10dp"
+                android:right="10dp"
+                a
