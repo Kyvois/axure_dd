@@ -44,4 +44,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:lottie_
+        app:lottie_autoPlay="true"
+        android:visibility="gone"
+        app:lottie_speed="2"
+        app:lottie_fileName="list_anim.json"
+        app:lottie_loop="true" />
+
+</androidx.co
