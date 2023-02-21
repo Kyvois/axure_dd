@@ -50,4 +50,4 @@
         app:lottie_fileName="list_anim.json"
         app:lottie_loop="true" />
 
-</androidx.co
+</androidx.constraintlayout.widget.ConstraintLayout>
