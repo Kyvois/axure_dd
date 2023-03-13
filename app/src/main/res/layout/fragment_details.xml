@@ -23,4 +23,9 @@
         app:layout_constraintStart_toEndOf="@id/imageViewIconDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/imageViewIconDetails"
-        app:layout_constraintBottom_
+        app:layout_constraintBottom_toTopOf="@id/textViewLowPrice"/>
+
+    <TextView
+        android:id="@+id/textViewLowPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_cont
