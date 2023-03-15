@@ -28,4 +28,7 @@
     <TextView
         android:id="@+id/textViewLowPrice"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_cont
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/imageViewIconDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layou
