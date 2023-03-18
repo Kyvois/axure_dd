@@ -31,4 +31,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/imageViewIconDetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layou
+        app:layout_constraintTop_toBottomOf="@id/textViewHighPrice"
+        app:layout_constraintBottom_toTopOf="@id/textViewHashAlg"/>
+
+    <TextView
+        android:id="@+id/textViewHashAlg"
+        
