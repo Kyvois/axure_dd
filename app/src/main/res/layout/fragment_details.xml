@@ -50,4 +50,9 @@
         app:layout_constraintTop_toBottomOf="@id/imageViewIconDetails"
         app:layout_constraintBottom_toTopOf="@id/horScroll"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_co
+        app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_autoPlay="true"
+        android:visibility="gone"
+        app:lottie_speed="2"
+        app:lottie_fileName="text_anim.json"
+        app:lottie_loop="true"
