@@ -82,4 +82,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        andro
+        android:background="@drawable/choosers_background"
+        app:layout_constraintBottom_toTopOf="@id/lineChart">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+  
