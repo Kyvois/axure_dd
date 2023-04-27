@@ -116,4 +116,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/textViewDay"
                 app:layout_constraintEnd_toStartOf="@id/textViewMonth"
-                an
+                android:text="@string/week" />
+
+            <TextView
+                android:id="@+id/textViewMonth"
+                android:layout_width="wrap_content"
+                android:lay
