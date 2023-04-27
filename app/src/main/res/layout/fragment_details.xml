@@ -125,4 +125,6 @@
                 android:padding="8dp"
                 android:layout_margin="8dp"
                 android:textSize="16sp"
-                andro
+                android:background="@drawable/text_view_shape_empty"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="par
