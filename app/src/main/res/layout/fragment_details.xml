@@ -130,4 +130,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/textViewWeek"
                 app:layout_constraintEnd_toStartOf="@id/textViewYear"
-                android:text="@string
+                android:text="@string/month" />
+
+            <TextView
+                android:id="@+id/textViewYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wra
