@@ -142,4 +142,8 @@
                 android:background="@drawable/text_view_shape_empty"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart
+                app:layout_constraintStart_toEndOf="@id/textViewMonth"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/year" />
+
+        </androidx.constraintlayout.widget
