@@ -146,4 +146,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/year" />
 
-        </androidx.constraintlayout.widget
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieChart"
+        android:layout_width="100dp"
+        android:l
