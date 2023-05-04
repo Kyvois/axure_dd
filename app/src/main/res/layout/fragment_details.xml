@@ -153,4 +153,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieChart"
         android:layout_width="100dp"
-        android:l
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="@id/lineChart"
+        app:layout_constraintBottom_toBottomOf="@id/lineChart"
+        app:layout_constraintStart_to
