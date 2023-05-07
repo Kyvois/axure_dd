@@ -161,4 +161,9 @@
         app:lottie_autoPlay="true"
         android:visibility="gone"
         app:lottie_speed="1"
-        app:
+        app:lottie_fileName="chart_anim.json"
+        app:lottie_loop="true" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_wid
