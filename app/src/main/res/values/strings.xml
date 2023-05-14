@@ -10,4 +10,7 @@
     <string name="low">Low 24h</string>
     <string name="high">High 24h</string>
     <string name="network_failure">Network failure</string>
-    <string name="conversion_error">Conversion 
+    <string name="conversion_error">Conversion error</string>
+    <string name="empty">List is empty</string>
+    <string name="unknown">Unknown</string>
+    <string name="details_offline">Can not open details when device is offline</string
